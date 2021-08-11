@@ -1,0 +1,75 @@
+<style lang="less">
+  @import './colorui/icon.wxss';
+  @import './colorui/main.wxss'; // @import '../../style/reset.less';
+  .container {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: white;
+  }
+</style>
+
+<template>
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">导航栏</view>
+  </cu-custom>
+</template>
+
+<script>
+  import wepy from '@wepy/core';
+  import eventHub from './common/eventHub';
+  import vuex from '@wepy/x';
+  wepy.use(vuex);
+  wepy.app({
+    hooks: {},
+    globalData: {
+      userInfo: null
+    },
+    onLaunch() {
+      eventHub.$on('app-launch', (...args) => {
+        console.log('app-launch event emitted, the params are:');
+        console.log(args);
+      });
+    },
+    methods: {}
+  });
+</script>
+
+<config>
+{
+    pages: [
+      'pages/push/push',
+      'pages/my/my',
+      "pages/diary/diary",
+      'pages/login/login',
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#ffa69e',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'white'
+    },
+"tabBar": {
+  "color": "#707070",
+  "selectedColor":"#ffa69e",
+  "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/push/push",
+      "text": "推荐",
+      "iconPath": "./images/tabBar/push.png",
+      "selectedIconPath": "./images/tabBar/push-f.png"
+    }, {
+      "pagePath": "pages/diary/diary",
+      "text": "日记",
+      "iconPath": "./images/tabBar/diary.png",
+      "selectedIconPath": "./images/tabBar/diary-f.png"
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "./images/tabBar/my.png",
+      "selectedIconPath": "./images/tabBar/my-f.png"
+    }]
+}
+}
+</config>

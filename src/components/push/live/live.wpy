@@ -1,0 +1,18 @@
+<template>
+  <div>
+    <grid></grid>
+  </div>
+</template>
+<script>
+import wepy from '@wepy/core'
+wepy.component({
+  
+})
+</script>
+<config>
+{
+  usingComponents: {
+    "grid": "../../grid/grid"
+  }
+}
+</config>

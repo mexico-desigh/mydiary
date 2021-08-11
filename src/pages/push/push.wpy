@@ -1,0 +1,117 @@
+<template>
+  <div class="container">
+    <div class="header" :style="{height: (button.bottom+6) +'px',paddingButtom: '6px'}">
+      <div class="header-input">
+        <input class="input" type="text" :style="{height:(button.bottom-button.top)+'px',marginTop: button.top+'px'}">
+        <img class="img" src="/static/search.png" />
+        <image class="img" src="/static/search.png" mode="scaleToFill" lazy-load="false">
+        </image>
+      </div>
+    </div>
+    <div class="content" :style="{marginTop: (button.bottom+6)+'px'}">
+      <scroll-view scroll-x scroll-anchoring class="top-list">
+        <view class="list-item" v-for="(item,index) in topList" bindtap="switchItem(index)" :key="index">{{item}}</view>
+      </scroll-view>
+      <pushs v-if="item==0"></pushs>
+      <live v-if="item==1"></live>
+      <study v-if="item==2"></study>
+      <fun v-if="item==3"></fun>
+      <sentence v-if="item==4"></sentence>
+      <wallpaper v-if="item==5"></wallpaper>
+      <book v-if="item==6"></book>
+    </div>
+  </div>
+</template>
+<script>
+  import wepy from '@wepy/core'
+  wepy.page({
+    data: {
+      button: {
+        width: 0,
+        height: 0,
+        left: 0,
+        bottom: 0,
+        top: 0
+      },
+      topList: ['推荐', '生活', '学习', '娱乐', '文案', '壁纸', '好书推荐'],
+      item: 0
+    },
+    onShow() {},
+    onLoad() {
+      this.button = wx.getMenuButtonBoundingClientRect();
+      console.log(this.button);
+    },
+    watch: {
+      index: function(val) {
+        // console.log(val);
+      }
+    },
+    methods: {
+      switchItem(e) {
+        console.log(e);
+        this.item = e;
+      }
+    }
+  })
+</script>
+<style lang="less">
+  @import "../../style/reset.less";
+  .header {
+    background: @pink;
+    width: 100%;
+    position: absolute;
+    .header-input {
+      .input {
+        width: 300rpx; // border: 1px solid @depgray;
+        border-radius: 40rpx;
+        background: white;
+        margin: 20%;
+        padding-left: 40rpx;
+      }
+      .img {
+        width: 50rpx;
+        height: 50rpx;
+        background: red;
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  .content {
+    .top-list {
+      // width: 800rpx;
+      height: 80rpx;
+      padding-left: 20rpx; // display: flex;
+      // justify-content: space-between;
+      // align-content: center;
+      white-space: nowrap;
+      .list-item {
+        display: inline-block;
+        width: 100rpx;
+        height: 80rpx;
+        padding-top: 20rpx;
+      }
+      .actice {
+        color: @pink;
+      }
+    }
+  }
+</style>
+<config>
+{
+  "navigationBarTitleText": "推荐",
+  "navigationStyle":"custom",
+  usingComponents: {
+  "pushs": "../../components/push/pushs/pushs",
+  "book": "../../components/push/book/book",
+  "study": "../../components/push/study/study",
+  "fun": "../../components/push/fun/fun",
+  "sentence": "../../components/push/sentence/sentence",
+  "wallpaper": "../../components/push/wallpaper/wallpaper",
+  "live": "../../components/push/live/live"
+  },
+
+}
+</config>

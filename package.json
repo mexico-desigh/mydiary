@@ -1,0 +1,38 @@
+{
+  "name": "pro",
+  "version": "0.0.2",
+  "description": "A WePY project",
+  "main": "weapp/app.js",
+  "scripts": {
+    "dev": "wepy build --watch",
+    "build": "cross-env NODE_ENV=production ./node_modules/.bin/wepy build --no-cache",
+    "clean": "rm -rf weapp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "wepy": {
+    "module-a": false,
+    "./src/components/list": "./src/components/wepy-list.wpy"
+  },
+  "author": "lifj <fjli.zh@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.7.2",
+    "@wepy/core": "^2.1.0",
+    "@wepy/x": "^2.1.0",
+    "escape-string-regexp": "^5.0.0",
+    "miniprogram-slide-view": "0.0.3",
+    "miniprogram-sm-crypto": "^0.3.2",
+    "vue": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@wepy/babel-plugin-import-regenerator": "0.0.2",
+    "@wepy/cli": "^2.1.0",
+    "@wepy/compiler-babel": "^2.1.0",
+    "@wepy/compiler-less": "^2.1.0",
+    "babel-eslint": "^7.2.3",
+    "cross-env": "^5.2.1",
+    "less": "^3.13.1"
+  }
+}

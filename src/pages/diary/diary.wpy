@@ -1,0 +1,28 @@
+<template>
+  <div>
+    <grid></grid>
+  </div>
+  <div>
+
+  </div>
+</template>
+<script>
+import wepy from '@wepy/core'
+wepy.page({
+  data: {
+
+  }
+})
+</script>
+<config>
+{
+  "navigationBarBackgroundColor": "#ffa69e",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "日记",
+  "backgroundColor": "#fbbd08",
+  "backgroundTextStyle": "light",
+  usingComponents: {
+    "grid": "../../components/grid/grid"
+  }
+}
+</config>
