@@ -1,14 +1,90 @@
 <template>
   <div>
-    <list></list>
+    <div class="box">
+      <div class="head">
+        <img class="head-img" src="/static/xiaoqiao.jpeg" alt="" />
+        <div class="head-txt">
+          <div class="head-name">你的名字</div>
+          <div class="grade"></div>
+        </div>
+        <img class="share" src="/static/images/share.png" alt="">
+      </div>
+      <div class="txt"></div>
+      <div class="actions">
+        <image class="praise ac" src="/static/images/follow.png"></image>
+        <image class="discuss ac" src="/static/images/discuss.png"></image>
+        <image class="collect ac" src="/static/images/praise.png"></image>
+        <image class="follow ac" src="/static/images/collect.png"></image>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import wepy from '@wepy/core'
-wepy.component({
-  
-})
+  import wepy from '@wepy/core'
+  wepy.component({
+  })
 </script>
+<style lang="less">
+  @import "../../../style/reset.less";
+  .box {
+    width: 90%;
+    height: 600rpx;
+    border-radius: 30rpx;
+    margin: 10rpx auto;
+    padding: 20rpx;
+    background: rgb(247, 247, 247);
+    overflow: hidden;
+    .head {
+      width: 100%;
+      height: 100rpx;
+      // background: @greenblue;
+      display: flex;
+      .head-img {
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 50%;
+        margin-right: 20rpx;
+      }
+      .head-txt {
+        .head-name {
+          margin: 15rpx 0 7rpx;
+        }
+        .grade {
+          width: 20rpx;
+          height: 20rpx;
+          border-radius: 50%;
+          background: @yellow;
+        }
+      }
+      .share {
+        width: 40rpx;
+        height: 40rpx;
+        margin-left: 350rpx;
+        margin-top: 20rpx;
+      }
+    }
+    .txt {
+      // background: @pink;
+      width: 100%;
+      height: 400rpx;
+      overflow: hidden;
+    }
+    .actions {
+      // background: @greenblue;
+      width: 100%;
+      height: 60rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10rpx;
+      .ac {
+        width: 40rpx;
+        height: 40rpx;
+      }
+    }
+  }
+</style>
+
 <config>
 {
   usingComponents: {

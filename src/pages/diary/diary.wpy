@@ -1,19 +1,36 @@
 <template>
   <div>
-    <grid></grid>
-  </div>
-  <div>
-
+    <img class="background" src="/static/background/8.jpg" alt="" />
+    <div class="header" :style="{height: (button.bottom+6) +'px',paddingButtom: '6px'}">
+      <div class="header-txt" :style="{paddingTop: (button.top+6) + 'px' }">
+          记录我的生活
+        <div class="box">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import wepy from '@wepy/core'
-wepy.page({
-  data: {
-
-  }
-})
+  import wepy from '@wepy/core'
+  wepy.page({
+    data: {
+      button: {},
+    },
+    onLoad() {
+      this.button = wx.getMenuButtonBoundingClientRect();
+    }
+  })
 </script>
+<style lang="less">
+  @import "../../style/reset.less";
+  .header {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    color: white;
+  }
+</style>
+
 <config>
 {
   "navigationBarBackgroundColor": "#ffa69e",
@@ -21,6 +38,7 @@ wepy.page({
   "navigationBarTitleText": "日记",
   "backgroundColor": "#fbbd08",
   "backgroundTextStyle": "light",
+  "navigationStyle":"custom",
   usingComponents: {
     "grid": "../../components/grid/grid"
   }

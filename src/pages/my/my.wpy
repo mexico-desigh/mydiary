@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+        <img class="background" src="/static/background/8.jpg" alt="" />
     <div class="header">
       <view class="padding">
         <image class="cu-avatar xl round margin-left" src="{{hasUserInfo ? userInfo.avatarUrl : '/static/xiaoqiao.jpeg'}}" bindtap="login">
@@ -8,6 +9,7 @@
       </view>
     </div>
     <list></list>
+
   </div>
 </template>
 <script>
@@ -20,6 +22,7 @@ wepy.page({
     userInfo: {
       nickName: '点击授权登录',
       avatarUrl: "",
+      button: {},
     },
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -27,14 +30,16 @@ wepy.page({
     encryptedData: '',
     iv: '',
   },
-    onLoad() {},
-  onShow() { 
+  onLoad() {
+    this.button = wx.getMenuButtonBoundingClientRect();
+  },
+  onShow() {
     wx.login({
       success: (res) => {
         this.code = res.code;
       },
     }),
-    this.checkoutAuth();
+      this.checkoutAuth();
   },
 
   methods: {
@@ -43,7 +48,7 @@ wepy.page({
         key: 'userInfo',
         success: (res) => {
           console.log(res);
-          if(res) {
+          if (res) {
             this.hasUserInfo = true;
             this.userInfo = res.data;
           }
@@ -90,11 +95,11 @@ wepy.page({
       })
     },
     getMUserInfo() {
-      return new Promise((resolve,reject) => {
+      return new Promise((resolve, reject) => {
         wx.getUserInfo({
           withCredentials: true,  // 此时返回的数据会包含 encryptedData, iv 等敏感信息；
           success: (res) => {
-            console.log("获取用户已授权信息",res);
+            console.log("获取用户已授权信息", res);
             this.hasUserInfo = true;
             this.encryptedData = res.encryptedData;
             this.iv = res.iv;
@@ -129,6 +134,7 @@ wepy.page({
   "navigationBarTitleText": "我的",
   "backgroundColor": "#fbbd08",
   "backgroundTextStyle": "light",
+  // "navigationStyle":"custom",
   usingComponents: {
     "list" : "../../components/list/list"
   }

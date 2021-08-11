@@ -14,3 +14,35 @@ input {
   list-style: none;
 }
 
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.header {
+  // background: @pink;
+  width: 100%;
+  position: absolute;
+  .header-input {
+    .box {
+      width: 300rpx;
+      height: 32px;
+      padding-left: 18%;
+      position: relative;
+      .input {
+        width: 300rpx; 
+        border-radius: 40rpx;
+        background: white;
+        padding-left: 60rpx;
+      }
+      .img {
+        width: 40rpx;
+        height: 40rpx;
+        position: absolute;
+        top: 12rpx;
+        left: 151rpx;
+      }
+    }
+  }
+}

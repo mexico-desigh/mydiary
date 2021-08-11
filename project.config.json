@@ -37,7 +37,7 @@
   },
   "compileType": "miniprogram",
   "appid": "wxe7c74309fe37d34d",
-  "projectname": "pro",
+  "projectname": "mydiary",
   "miniprogramRoot": "weapp/",
   "libVersion": "2.14.1",
   "condition": {}

@@ -1,13 +1,17 @@
 <template>
   <div class="container">
+    <img class="background" src="/static/background/8.jpg" alt="" />
+    <!-- 搜索栏 -->
     <div class="header" :style="{height: (button.bottom+6) +'px',paddingButtom: '6px'}">
       <div class="header-input">
-        <input class="input" type="text" :style="{height:(button.bottom-button.top)+'px',marginTop: button.top+'px'}">
-        <img class="img" src="/static/search.png" />
-        <image class="img" src="/static/search.png" mode="scaleToFill" lazy-load="false">
+        <div class="box">
+          <input class="input" type="text" :style="{height:(button.bottom-button.top)+'px',marginTop: button.top+'px'}" placeholder="搜索" />
+          <image class="img" src="/static/search.png" mode="scaleToFit">
+        </div>
         </image>
       </div>
     </div>
+    <!-- 内容 -->
     <div class="content" :style="{marginTop: (button.bottom+6)+'px'}">
       <scroll-view scroll-x scroll-anchoring class="top-list">
         <view class="list-item" v-for="(item,index) in topList" bindtap="switchItem(index)" :key="index">{{item}}</view>
@@ -23,81 +27,79 @@
   </div>
 </template>
 <script>
-  import wepy from '@wepy/core'
-  wepy.page({
-    data: {
-      button: {
-        width: 0,
-        height: 0,
-        left: 0,
-        bottom: 0,
-        top: 0
-      },
-      topList: ['推荐', '生活', '学习', '娱乐', '文案', '壁纸', '好书推荐'],
-      item: 0
-    },
-    onShow() {},
-    onLoad() {
-      this.button = wx.getMenuButtonBoundingClientRect();
-      console.log(this.button);
-    },
-    watch: {
-      index: function(val) {
-        // console.log(val);
-      }
-    },
-    methods: {
-      switchItem(e) {
-        console.log(e);
-        this.item = e;
-      }
+import wepy from '@wepy/core'
+const app = getApp();
+wepy.page({
+  data: {
+    button: {},
+    topList: ['推荐', '生活', '学习', '娱乐', '文案', '壁纸', '好书推荐'],
+    item: 0
+  },
+  onShow() { },
+  onLoad() {
+    this.button = wx.getMenuButtonBoundingClientRect();
+  },
+  watch: {
+    index: function (val) {
+      // console.log(val);
     }
-  })
+  },
+  methods: {
+    switchItem(e) {
+      console.log(e);
+      this.item = e;
+    }
+  }
+})
 </script>
 <style lang="less">
-  @import "../../style/reset.less";
-  .header {
-    background: @pink;
-    width: 100%;
-    position: absolute;
-    .header-input {
+@import '../../style/reset.less';
+.header {
+  // background: @pink;
+  width: 100%;
+  position: absolute;
+  .header-input {
+    .box {
+      width: 300rpx;
+      height: 32px;
+      padding-left: 18%;
+      position: relative;
       .input {
-        width: 300rpx; // border: 1px solid @depgray;
+        width: 300rpx;
         border-radius: 40rpx;
         background: white;
-        margin: 20%;
-        padding-left: 40rpx;
+        padding-left: 60rpx;
       }
       .img {
-        width: 50rpx;
-        height: 50rpx;
-        background: red;
+        width: 40rpx;
+        height: 40rpx;
         position: absolute;
-        z-index: 3;
-        top: 0;
-        left: 0;
+        top: 12rpx;
+        left: 151rpx;
       }
     }
   }
-  .content {
-    .top-list {
-      // width: 800rpx;
-      height: 80rpx;
-      padding-left: 20rpx; // display: flex;
-      // justify-content: space-between;
-      // align-content: center;
-      white-space: nowrap;
-      .list-item {
-        display: inline-block;
-        width: 100rpx;
-        height: 80rpx;
-        padding-top: 20rpx;
-      }
-      .actice {
-        color: @pink;
-      }
+}
+.content {
+  .top-list {
+    height: 80rpx;
+    padding-left: 20rpx;
+    white-space: nowrap;
+    margin-bottom: 40rpx;
+    .list-item {
+      display: inline-block;
+      line-height: 60rpx;
+      padding: 10rpx;
+      background: @pink;
+      border-radius: 50rpx;
+      margin: 0 10rpx;
+      color: white;
+    }
+    .actice {
+      color: @pink;
     }
   }
+}
 </style>
 <config>
 {
