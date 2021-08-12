@@ -41,7 +41,15 @@
       'pages/push/push',
       'pages/my/my',
       "pages/diary/diary",
-      'pages/login/login',
+      "pages/year/year",
+      "pages/month/month",
+      "pages/week/week",
+      "pages/day/day",
+      "pages/idea/idea",
+      "pages/note/note",
+      "pages/plan/plan",
+      "pages/show/show",
+      "pages/static/static",
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -55,18 +63,23 @@
   "borderStyle": "white",
   "navigationStyle":"custom",
     "list": [{
-      "pagePath": "pages/push/push",
-      "text": "推荐",
-      "iconPath": "/static/images/tabBar/push.png",
-      "selectedIconPath": "/static/images/tabBar/push-f.png"
+      "pagePath": "pages/show/show",
+      "text": "今日计划",
+      "iconPath": "/static/images/tabBar/plan.png",
+      "selectedIconPath": "/static/images/tabBar/plan-f.png"
     }, {
-      "pagePath": "pages/diary/diary",
-      "text": "日记",
-      "iconPath": "/static/images/tabBar/diary.png",
-      "selectedIconPath": "/static/images/tabBar/diary-f.png"
-    }, {
+      "pagePath": "pages/plan/plan",
+      "text": "计划",
+      "iconPath": "/static/images/tabBar/make-plan.png",
+      "selectedIconPath": "/static/images/tabBar/make-plan-f.png"
+    },{
+      "pagePath": "pages/static/static",
+      "text": "统计",
+      "iconPath": "/static/images/tabBar/static.png",
+      "selectedIconPath": "/static/images/tabBar/static-f.png"
+    },{
       "pagePath": "pages/my/my",
-      "text": "我的",
+      "text": "酷gril",
       "iconPath": "/static/images/tabBar/my.png",
       "selectedIconPath": "/static/images/tabBar/my-f.png"
     }]

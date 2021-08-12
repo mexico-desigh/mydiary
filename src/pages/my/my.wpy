@@ -9,7 +9,7 @@
       </view>
     </div>
     <list></list>
-
+    <!-- <grid class="back"></grid> -->
   </div>
 </template>
 <script>
@@ -120,6 +120,7 @@ wepy.page({
   width: 100%;
   height: 200rpx;
   background: @pink;
+  position: relative;
   .nickName {
     display: inline-block;
     margin-left: 30rpx;
@@ -136,7 +137,8 @@ wepy.page({
   "backgroundTextStyle": "light",
   // "navigationStyle":"custom",
   usingComponents: {
-    "list" : "../../components/list/list"
+    "list" : "../../components/list/list",
+    "grid" : "../../components/grid/grid"
   }
 }
 </config>

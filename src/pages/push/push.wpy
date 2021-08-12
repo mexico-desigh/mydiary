@@ -6,9 +6,8 @@
       <div class="header-input">
         <div class="box">
           <input class="input" type="text" :style="{height:(button.bottom-button.top)+'px',marginTop: button.top+'px'}" placeholder="搜索" />
-          <image class="img" src="/static/search.png" mode="scaleToFit">
+          <image class="img" src="/static/search.png" mode="scaleToFit" />
         </div>
-        </image>
       </div>
     </div>
     <!-- 内容 -->
