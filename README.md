@@ -8,5 +8,5 @@ git clone https://github.com/mexico-desigh/mydiary.git
 ### 下载依赖插件
 npm install
 
-### 本地创建服务器并开启热更新(接口地址在 src/utils/const.js 中修改)
+### 本地创建服务器并开启热更新
 npm run dev
