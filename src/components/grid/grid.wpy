@@ -72,5 +72,6 @@ data: {
 <style lang="less">
 @import "../../colorui/icon.wxss";
 @import "../../colorui/main.wxss";
+
 </style>
 
